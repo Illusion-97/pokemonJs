@@ -1,0 +1,17 @@
+show-title{
+    text-align: center;
+    font-size: 3em;
+}
+
+init-rand {
+    font-size: 2em;
+}
+
+battle-zone{
+    font-size: 1.5em;
+}
+
+show-winner{
+    text-decoration: crimson;
+    font-size: 2em;
+}
