@@ -37,19 +37,13 @@ class Attaque {
     }
 }
 
-let eclair = new Attaque("Eclair",10);
-let fatalFoudre = new Attaque("Fatal-Foudre",20);
-let griffe = new Attaque("Griffe",9);
-let charge = new Attaque("Charge",15);
-let ruse = new Attaque("Ruse",12);
-let eclaterox = new Attaque("Eclat'Roc",18);
-let patience = new Attaque("Patience",8)
-let jugement = new Attaque("Jugement",200);
-let pikachu = new Pokemon(20,"Pikachu","Electrique",82,eclair,fatalFoudre);
-let evoli = new Pokemon(133,"Evoli","Normal",75,griffe,charge);
-let riolu = new Pokemon(447,"Riolu","Combat",78,ruse,eclaterox);
-let arceus = new Pokemon(493,"Arceus","Normal",100,patience,jugement);
-let pokemons = [pikachu,evoli,riolu,arceus];
+
+let pokemons = [
+    new Pokemon(20,"Pikachu","Electrique",82,new Attaque("Eclair",10),new Attaque("Fatal-Foudre",20)),
+    new Pokemon(133,"Evoli","Normal",75,new Attaque("Griffe",9),new Attaque("Charge",15)),
+    new Pokemon(447,"Riolu","Combat",78,new Attaque("Ruse",12),new Attaque("Eclat'Roc",18)),
+    new Pokemon(493,"Arceus","Normal",150,new Attaque("Patience",8),new Attaque("Jugement",200))
+];
 let fightLog = "";
 
 function fight(){
@@ -114,6 +108,8 @@ function getLevel(){
 customElements.define('battle-zone', class extends HTMLElement {
     connectedCallback() {
         const shadow = this.attachShadow({mode: 'open'});
-        shadow.innerHTML = `<p>` + fight(); +`</p>`;
+        shadow.innerHTML = `<show-title></show-title>
+<init-rand></init-rand>
+<p>` + fight(); +`</p>`;
     }
 });
